@@ -14396,61 +14396,27 @@ div.jp-OutputPrompt {
 
 <div class="reveal">
 <div class="slides"><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="jp-Cell-inputWrapper"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Data-Expo-2009---Airline-on-time-performance">Data Expo 2009 - Airline on-time performance<a class="anchor-link" href="#Data-Expo-2009---Airline-on-time-performance">&#182;</a></h1><h2 id="by-Abdalla-Mohamed">by Abdalla Mohamed<a class="anchor-link" href="#by-Abdalla-Mohamed">&#182;</a></h2>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="jp-Cell-inputWrapper"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Investigation-Overview">Investigation Overview<a class="anchor-link" href="#Investigation-Overview">&#182;</a></h2><p>In this investigation, I wanted to look at how American Airlines flights on time perfromance for Dallas Fort Worth (DFW) Airport measures. The main focus was on Hour of day flight is schedules, day of the week, and month of the year.</p>
 <h2 id="Dataset-Overview">Dataset Overview<a class="anchor-link" href="#Dataset-Overview">&#182;</a></h2><p>The data analyzed is from 2005. It is a list of 7,140,596 flights of which 328,972 are for American Airlines (AA) flights into and out of DFW airport. The attributes included date, departure time, arrivale time, scheduled arrival, scheudled departure, flight number, origin and destination information. 11,469 rows were dropped due to missing arrival and departure delay time.</p>
 
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="jp-Cell-inputWrapper"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Distribution-of-Outbound-flights">Distribution of Outbound flights<a class="anchor-link" href="#Distribution-of-Outbound-flights">&#182;</a></h2><p>We can see that there is a wide range of flight frequncies, some fly out of DFW airport daily and some only once a year. A good proportion fly almost daily. There are 6 daily outbound flights</p>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># lets take a look at the frequency of American Airlines flights outbound from DFW airport</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
-<span class="n">base_color</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">color_palette</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="n">order</span> <span class="o">=</span> <span class="n">dfw_outbound</span><span class="o">.</span><span class="n">FlightNum</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span>
-
-<span class="n">sb</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dfw_outbound</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;FlightNum&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">base_color</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Frequency of Outbound American Airlines flights from DFW airport</span><span class="se">\n</span><span class="s1">(Every 20 th flight number is shown on the y-axis)&#39;</span><span class="o">.</span><span class="n">title</span><span class="p">(),</span>
-          <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
-          
-<span class="c1"># get current y ticks labels and positions</span>
-<span class="n">pos</span><span class="p">,</span> <span class="n">lab</span> <span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">()</span>
-
-<span class="c1"># set new y tick labels every 20th </span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">pos</span><span class="p">[::</span><span class="mi">20</span><span class="p">],</span> <span class="n">lab</span><span class="p">[::</span><span class="mi">20</span><span class="p">]);</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput ">
 
 <div class="jp-Cell-outputWrapper">
-
 
 <div class="jp-OutputArea jp-Cell-outputArea">
 
 <div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
 
 
 
@@ -14467,50 +14433,17 @@ div.jp-OutputPrompt {
 </div>
 
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="jp-Cell-inputWrapper"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Distribution-of-Inbound-flights">Distribution of Inbound flights<a class="anchor-link" href="#Distribution-of-Inbound-flights">&#182;</a></h2><p>We see the flights frequency also has a wide range with some flights flying into DFW daily and and others just once a year. There is a smaller portion which fly almost daily compared to the outbound flights. There is only 1 daily inbound flight, which is flight number 8</p>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># lets take a look at the frequency of American Airlines inbound to DFW airport</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
-<span class="n">base_color</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">color_palette</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="n">order</span> <span class="o">=</span> <span class="n">dfw_inbound</span><span class="o">.</span><span class="n">FlightNum</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span>
-
-<span class="n">sb</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dfw_inbound</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;FlightNum&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">base_color</span><span class="p">);</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Frequency of Inbound American Airlines flights to DFW airport</span><span class="se">\n</span><span class="s1">(Every 20 th flight number is shown on the y-axis)&#39;</span><span class="o">.</span><span class="n">title</span><span class="p">(),</span>
-          <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
-          
-<span class="c1"># get current y ticks labels and positions</span>
-<span class="n">pos</span><span class="p">,</span> <span class="n">lab</span> <span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">()</span>
-
-<span class="c1"># set new y tick labels every 20th </span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">pos</span><span class="p">[::</span><span class="mi">20</span><span class="p">],</span> <span class="n">lab</span><span class="p">[::</span><span class="mi">20</span><span class="p">]);</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput ">
 
 <div class="jp-Cell-outputWrapper">
-
 
 <div class="jp-OutputArea jp-Cell-outputArea">
 
 <div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
 
 
 
@@ -14527,42 +14460,17 @@ div.jp-OutputPrompt {
 </div>
 
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="jp-Cell-inputWrapper"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Distribution-of-Flights-by-Day-of-Month">Distribution of Flights by Day of Month<a class="anchor-link" href="#Distribution-of-Flights-by-Day-of-Month">&#182;</a></h2><p>The order of the days of the months were kept as they are since they have an inherent order. It is expected for the 31st day to have the leaste amount of flights since not all months have 31 days. The maximum flights occur on the 11th day of the month</p>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># lets take a look at the frequency of flights by day of month</span>
-<span class="n">dom</span> <span class="o">=</span> <span class="n">dfw</span><span class="o">.</span><span class="n">DayofMonth</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-<span class="n">base_color</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">color_palette</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
-<span class="c1">#order = dfw.DayofMonth.value_counts().index</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
-<span class="n">sb</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dfw</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;DayofMonth&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">base_color</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Flight Distribution by Day of Month&#39;</span><span class="p">);</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput ">
 
 <div class="jp-Cell-outputWrapper">
-
 
 <div class="jp-OutputArea jp-Cell-outputArea">
 
 <div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
 
 
 
@@ -14579,43 +14487,17 @@ div.jp-OutputPrompt {
 </div>
 
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="jp-Cell-inputWrapper"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Distribution-of-Flights-by-Month">Distribution of Flights by Month<a class="anchor-link" href="#Distribution-of-Flights-by-Month">&#182;</a></h2><p>The order of the months are kept as is since there is an inherent order in months. July and August are the months with the most frequent flights</p>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># lets take a look at the frequency of flights by month</span>
-<span class="n">month</span> <span class="o">=</span> <span class="n">dfw</span><span class="o">.</span><span class="n">Month</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-<span class="n">base_color</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">color_palette</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
-<span class="c1">#order = dfw.Month.value_counts().index</span>
-<span class="c1">#order = dfw.resample(&#39;M&#39;, on=&#39;Month&#39;).agg({&#39;Month&#39;:&#39;sum&#39;}).sort_values(ascending = False) </span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
-<span class="n">sb</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dfw</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Month&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">base_color</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Flight Distribution by Month&#39;</span><span class="p">);</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput ">
 
 <div class="jp-Cell-outputWrapper">
-
 
 <div class="jp-OutputArea jp-Cell-outputArea">
 
 <div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
 
 
 
@@ -14632,8 +14514,7 @@ div.jp-OutputPrompt {
 </div>
 
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="jp-Cell-inputWrapper"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Distribution-of-Flights-by-Day-of-Week">Distribution of Flights by Day of Week<a class="anchor-link" href="#Distribution-of-Flights-by-Day-of-Week">&#182;</a></h2><p>We see that week days 2,3,5,1, and 4 have roughly the same number of flights where days 7 and 6 have less flights throughout the year</p>
 <blockquote><p>1: Monday,
 2: Tuesday,
@@ -14645,36 +14526,13 @@ div.jp-OutputPrompt {
 </blockquote>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># lets take a look at the frequency of flights by day of week</span>
-<span class="n">dow</span> <span class="o">=</span> <span class="n">dfw</span><span class="o">.</span><span class="n">DayOfWeek</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-<span class="n">base_color</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">color_palette</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
-<span class="n">sb</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dfw</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;DayOfWeek&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">base_color</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Flight Distribution by Day of Week&#39;</span><span class="p">);</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput ">
 
 <div class="jp-Cell-outputWrapper">
-
 
 <div class="jp-OutputArea jp-Cell-outputArea">
 
 <div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
 
 
 
@@ -14691,59 +14549,20 @@ div.jp-OutputPrompt {
 </div>
 
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="jp-Cell-inputWrapper"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Distribution-of-Inbound-Arrival-Delay-and-Outbound-Departure-Delay">Distribution of Inbound Arrival Delay and Outbound Departure Delay<a class="anchor-link" href="#Distribution-of-Inbound-Arrival-Delay-and-Outbound-Departure-Delay">&#182;</a></h2><p>For inbound flights, we observe that the majority of flights arrived earlier than scheduduled by around 30 minutes, or on time. The majority of delayed flights are within 60 mins of delays</p>
 <p>For outbound flights, we observe that the majority of flights depart earlier than scheduled by around 20 minutes, or on time. The majority of delayed flights are within 60 minutes of delay</p>
 <p>Each box on the histogram represents a 1 minute interval</p>
 <p>We observe that for outbound flights, the frequency is a lot more precise than spreadout compared to inbound flights. The mode frequency for outbound flights is around 17,000 where inbound mode frequcncy is around 6,000</p>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># combine inbound and outbound onto one plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
-
-<span class="c1"># lets take a look at arrival delays for DFW inbound flights</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">dfw_inbound</span><span class="o">.</span><span class="n">ArrDelay</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">dfw_inbound</span><span class="o">.</span><span class="n">ArrDelay</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> 
-<span class="n">sb</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dfw_inbound</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;ArrDelay&#39;</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">bins</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="mi">200</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">17000</span><span class="p">])</span>                <span class="c1"># this is done so that the inbound and outbound flights are compared on the same y scale</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;DFW Inbound American Airlines flights&#39;</span><span class="p">);</span>
-
-<span class="c1"># Lets take a look at departure delays for DFW outbound flights</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">dfw_outbound</span><span class="o">.</span><span class="n">DepDelay</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">dfw_outbound</span><span class="o">.</span><span class="n">DepDelay</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">sb</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dfw_outbound</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;DepDelay&#39;</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">bins</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="mi">200</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">17000</span><span class="p">])</span>                <span class="c1"># this is done so that the inbound and outbound flights are compared on the same y scale</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;DFW Outbound American Airlines flights&#39;</span><span class="p">);</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Inbound &amp; Outbound Delay Distribution&#39;</span><span class="o">.</span><span class="n">title</span><span class="p">(),</span> <span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">);</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput ">
 
 <div class="jp-Cell-outputWrapper">
-
 
 <div class="jp-OutputArea jp-Cell-outputArea">
 
 <div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
 
 
 
@@ -14760,8 +14579,7 @@ div.jp-OutputPrompt {
 </div>
 
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="jp-Cell-inputWrapper"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Inbound-Delay-VS-Scheduled-Arrival-Time-&amp;">Inbound Delay VS Scheduled Arrival Time &amp;<a class="anchor-link" href="#Inbound-Delay-VS-Scheduled-Arrival-Time-&amp;">&#182;</a></h2><h2 id="Outbound-Delay-VS-Scheduled-Departure-Time">Outbound Delay VS Scheduled Departure Time<a class="anchor-link" href="#Outbound-Delay-VS-Scheduled-Departure-Time">&#182;</a></h2><p>From this visualization we see that starting around 11 AM, Dallas Local Time, as the day goes on, we can expect more delays up until 7 PM, with a break at 8 PM, and then steady delays until midnight.
 For Inbound flights, this helps visualize there are no flights scheduled to arrive between 1 AM - 3 AM.
 For Outbound flights, this helps visualize there are no flights scheduled to depart  between 1 AM -5 AM and also 11 PM.
@@ -14778,52 +14596,13 @@ Furthermore, the best time to catch a flight coming into DFW airport is also at 
 The most delays for flights coming into DFW happen around 5 Pm to 10 PM</p>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Does time of day effect delays?</span>
-
-<span class="c1"># plot inbound scheduled arrival time vs Average arrival delay</span>
-<span class="n">dfw_inbound</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">&#39;CRSArrTime&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;ArrDelay&#39;</span><span class="p">:</span><span class="s1">&#39;mean&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span><span class="n">legend</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="n">xticks</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">xticks</span><span class="p">,</span><span class="n">xticks</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Scheduled Hour&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Average Delay (min)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Inbound Flight Times VS Average Arrival Delays&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">24</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">])</span>
-
-<span class="c1"># plot outbound scheduled departure time vs Average departure delay</span>
-<span class="n">dfw_outbound</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">&#39;CRSDepTime&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;DepDelay&#39;</span><span class="p">:</span><span class="s1">&#39;mean&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span><span class="n">legend</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="n">xticks</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">xticks</span><span class="p">,</span><span class="n">xticks</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Scheduled Hour&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Average Delay (min)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Outbound Flight Times VS Average Departure Delays&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">24</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">]);</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput ">
 
 <div class="jp-Cell-outputWrapper">
-
 
 <div class="jp-OutputArea jp-Cell-outputArea">
 
 <div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
 
 
 
@@ -14836,10 +14615,6 @@ The most delays for flights coming into DFW happen around 5 Pm to 10 PM</p>
 </div>
 
 <div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
 
 
 
@@ -14856,61 +14631,18 @@ The most delays for flights coming into DFW happen around 5 Pm to 10 PM</p>
 </div>
 
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="jp-Cell-inputWrapper"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Arrival-Delays-VS-Departure-Delays-by-Schedued-Hour-of-the-Day">Arrival Delays VS Departure Delays by Schedued Hour of the Day<a class="anchor-link" href="#Arrival-Delays-VS-Departure-Delays-by-Schedued-Hour-of-the-Day">&#182;</a></h2><p>Inbound flights generally experience more depaerture delays than arrival delays, especially when their scheduled departure time is late night.</p>
 <p>Outbound flights generally tie between departure and arrival delays, however late hours of the night departure delays are slightly longer.</p>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Does time of day effect delays?</span>
-
-<span class="c1"># plot inbound &amp; outbound flights</span>
-
-<span class="c1"># plot inbound scheduled arrival time vs arrival delay and departure delay</span>
-<span class="n">dfw_inbound</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">&#39;CRSArrTime&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;ArrDelay&#39;</span><span class="p">:</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;DepDelay&#39;</span><span class="p">:</span><span class="s1">&#39;mean&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
-<span class="n">xticks</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">xticks</span><span class="p">,</span><span class="n">xticks</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Scheduled Hour&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Average Delay (min)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Inbound Flight Times&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">24</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="mi">20</span><span class="p">])</span>
-
-
-<span class="c1"># plot outbound scheduled arrival time vs arrival delay and departure delay</span>
-<span class="n">dfw_outbound</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">&#39;CRSDepTime&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;ArrDelay&#39;</span><span class="p">:</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;DepDelay&#39;</span><span class="p">:</span><span class="s1">&#39;mean&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
-<span class="n">xticks</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">xticks</span><span class="p">,</span><span class="n">xticks</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Scheduled Hour&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Average Delay (min)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Outbound Flight Times&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">24</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="mi">20</span><span class="p">]);</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput ">
 
 <div class="jp-Cell-outputWrapper">
-
 
 <div class="jp-OutputArea jp-Cell-outputArea">
 
 <div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
 
 
 
@@ -14923,10 +14655,6 @@ The most delays for flights coming into DFW happen around 5 Pm to 10 PM</p>
 </div>
 
 <div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
 
 
 
@@ -14943,55 +14671,17 @@ The most delays for flights coming into DFW happen around 5 Pm to 10 PM</p>
 </div>
 
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="jp-Cell-inputWrapper"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Inbound-Delays-VS-Scheduled-Arrival-time-broken-down-by-day-of-week">Inbound Delays VS Scheduled Arrival time broken down by day of week<a class="anchor-link" href="#Inbound-Delays-VS-Scheduled-Arrival-time-broken-down-by-day-of-week">&#182;</a></h2><p>The best day of the week to catch an inbound flight is Tuesday morning. you can expect to arrive on average 15 minutes early; whereas Sunday and Thursday mornings you can exoect to arrive on average 15 minutes late</p>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># list days in order</span>
-<span class="kn">import</span> <span class="nn">calendar</span>
-
-<span class="n">day_order</span> <span class="o">=</span> <span class="p">[</span><span class="n">day</span> <span class="k">for</span> <span class="n">day</span> <span class="ow">in</span> <span class="n">calendar</span><span class="o">.</span><span class="n">day_name</span><span class="p">]</span>
-
-<span class="c1"># Plot Inbound flight delays by hour of day, then further break it down by day of the week</span>
-<span class="n">g</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dfw_inbound</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">&#39;day_name&#39;</span><span class="p">,</span> <span class="n">margin_titles</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">col_order</span><span class="o">=</span><span class="n">day_order</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sb</span><span class="o">.</span><span class="n">barplot</span><span class="p">,</span> <span class="s1">&#39;hour&#39;</span><span class="p">,</span> <span class="s1">&#39;ArrDelay&#39;</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">dfw_inbound</span><span class="o">.</span><span class="n">hour</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
-
-<span class="c1"># add plot title</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Inbound Delays VS Scheduled Arrival time broken down by day of week&#39;</span><span class="o">.</span><span class="n">title</span><span class="p">(),</span><span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
-             <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
-
-<span class="c1"># label axes</span>
-<span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="n">x_var</span><span class="o">=</span><span class="s1">&#39;Hour&#39;</span><span class="p">,</span> <span class="n">y_var</span><span class="o">=</span><span class="s1">&#39; Arrival Delay (minutes)&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">set_titles</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{col_name}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="c1"># set plot dimensions</span>
-<span class="n">g</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-<span class="c1"># optimize distance between subplots </span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput ">
 
 <div class="jp-Cell-outputWrapper">
-
 
 <div class="jp-OutputArea jp-Cell-outputArea">
 
 <div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
 
 
 
@@ -15008,55 +14698,17 @@ The most delays for flights coming into DFW happen around 5 Pm to 10 PM</p>
 </div>
 
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="jp-Cell-inputWrapper"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Outbound-Delays-VS-Scheduled-Departure-time-broken-down-by-day-of-week">Outbound Delays VS Scheduled Departure time broken down by day of week<a class="anchor-link" href="#Outbound-Delays-VS-Scheduled-Departure-time-broken-down-by-day-of-week">&#182;</a></h2><p>The worst day to catch an outbound flight from DFW airport is on Saturday night, where you can expect a delay of 40 minutes on average</p>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># list days in order</span>
-<span class="kn">import</span> <span class="nn">calendar</span>
-
-<span class="n">day_order</span> <span class="o">=</span> <span class="p">[</span><span class="n">day</span> <span class="k">for</span> <span class="n">day</span> <span class="ow">in</span> <span class="n">calendar</span><span class="o">.</span><span class="n">day_name</span><span class="p">]</span>
-<span class="c1"># Plot Outbound flight delays by hour of day, then further break it down by day of the week</span>
-
-<span class="n">g</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dfw_outbound</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">&#39;day_name&#39;</span><span class="p">,</span> <span class="n">margin_titles</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">col_order</span><span class="o">=</span><span class="n">day_order</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sb</span><span class="o">.</span><span class="n">barplot</span><span class="p">,</span> <span class="s1">&#39;hour&#39;</span><span class="p">,</span> <span class="s1">&#39;DepDelay&#39;</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">dfw_outbound</span><span class="o">.</span><span class="n">hour</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
-
-<span class="c1"># add plot title</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Outbound Delays VS Scheduled Departure time broken down by day of week&#39;</span><span class="o">.</span><span class="n">title</span><span class="p">(),</span><span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
-             <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
-
-<span class="c1"># label axes</span>
-<span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="n">x_var</span><span class="o">=</span><span class="s1">&#39;Hour&#39;</span><span class="p">,</span> <span class="n">y_var</span><span class="o">=</span><span class="s1">&#39; Departure Delay (minutes)&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">set_titles</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{col_name}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="c1"># set plot dimensions</span>
-<span class="n">g</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-<span class="c1"># optimize distance between subplots </span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput ">
 
 <div class="jp-Cell-outputWrapper">
-
 
 <div class="jp-OutputArea jp-Cell-outputArea">
 
 <div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
 
 
 
@@ -15073,51 +14725,17 @@ The most delays for flights coming into DFW happen around 5 Pm to 10 PM</p>
 </div>
 
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="jp-Cell-inputWrapper"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Inbound-Arrival-Delays-by-Month">Inbound Arrival Delays by Month<a class="anchor-link" href="#Inbound-Arrival-Delays-by-Month">&#182;</a></h2><p>We can see delays get longer during January, then taper off, and delays start getting longer again starting June through August, with the longest delays of the year occur in July. Delays taper off again and pick up for december into January</p>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot Inbound Arrival Delays by scheduled arrival time and break down by month</span>
-<span class="n">g</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dfw_inbound</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">&#39;Month&#39;</span><span class="p">,</span> <span class="n">margin_titles</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sb</span><span class="o">.</span><span class="n">barplot</span><span class="p">,</span> <span class="s1">&#39;hour&#39;</span><span class="p">,</span> <span class="s1">&#39;ArrDelay&#39;</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">dfw_inbound</span><span class="o">.</span><span class="n">hour</span><span class="o">.</span><span class="n">unique</span><span class="p">()));</span>
-
-
-<span class="c1"># add plot title</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Inbound Delays VS Scheduled Arrival time broken down by Month&#39;</span><span class="o">.</span><span class="n">title</span><span class="p">(),</span><span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
-             <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
-
-<span class="c1"># label axes</span>
-<span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="n">x_var</span><span class="o">=</span><span class="s1">&#39;Hour&#39;</span><span class="p">,</span> <span class="n">y_var</span><span class="o">=</span><span class="s1">&#39; Arrival Delay (minutes)&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">set_titles</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{col_name}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="c1"># set plot dimensions</span>
-<span class="n">g</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-<span class="c1"># optimize distance between subplots </span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput ">
 
 <div class="jp-Cell-outputWrapper">
-
 
 <div class="jp-OutputArea jp-Cell-outputArea">
 
 <div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
 
 
 
@@ -15134,51 +14752,17 @@ The most delays for flights coming into DFW happen around 5 Pm to 10 PM</p>
 </div>
 
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="jp-Cell-inputWrapper"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Outbound-Departure-Delays-by-Month">Outbound Departure Delays by Month<a class="anchor-link" href="#Outbound-Departure-Delays-by-Month">&#182;</a></h2><p>A similar trend is seen to inbound flights where delays during January, June, July, August and December are the longest</p>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot Outbound Departure Delays by scheduled arrival time and break down by month</span>
-<span class="n">g</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dfw_outbound</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">&#39;Month&#39;</span><span class="p">,</span> <span class="n">margin_titles</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sb</span><span class="o">.</span><span class="n">barplot</span><span class="p">,</span> <span class="s1">&#39;hour&#39;</span><span class="p">,</span> <span class="s1">&#39;DepDelay&#39;</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">dfw_outbound</span><span class="o">.</span><span class="n">hour</span><span class="o">.</span><span class="n">unique</span><span class="p">()));</span>
-
-
-<span class="c1"># add plot title</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Outbound Delays VS Scheduled Departure time broken down by Month&#39;</span><span class="o">.</span><span class="n">title</span><span class="p">(),</span><span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
-             <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
-
-<span class="c1"># label axes</span>
-<span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="n">x_var</span><span class="o">=</span><span class="s1">&#39;Hour&#39;</span><span class="p">,</span> <span class="n">y_var</span><span class="o">=</span><span class="s1">&#39; Departure Delay (minutes)&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">set_titles</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{col_name}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="c1"># set plot dimensions</span>
-<span class="n">g</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-<span class="c1"># optimize distance between subplots </span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput ">
 
 <div class="jp-Cell-outputWrapper">
-
 
 <div class="jp-OutputArea jp-Cell-outputArea">
 
 <div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
 
 
 
@@ -15195,50 +14779,19 @@ The most delays for flights coming into DFW happen around 5 Pm to 10 PM</p>
 </div>
 
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="jp-Cell-inputWrapper"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Inbound/Outbound-VS-Scheduled-time-broken-down-by-day-of-week">Inbound/Outbound VS Scheduled time broken down by day of week<a class="anchor-link" href="#Inbound/Outbound-VS-Scheduled-time-broken-down-by-day-of-week">&#182;</a></h2><p>Inbound flights have an interesting delay time at 6 AM. On Sundays and Thursday there are heavy delays; Whereas Tuesdays at 6 AM flights arrive around 15 minutes early.</p>
 <p>Inbound flights on Thursdays nights can expect above average delays compared to other days of the week.</p>
 <p>Outbound flights on late Saturday nights expericence around 40 minutes of departure delays. This would be an interesting pattern to further study.</p>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># list days in order</span>
-<span class="kn">import</span> <span class="nn">calendar</span>
-<span class="n">day_order</span> <span class="o">=</span> <span class="p">[</span><span class="n">day</span> <span class="k">for</span> <span class="n">day</span> <span class="ow">in</span> <span class="n">calendar</span><span class="o">.</span><span class="n">day_name</span><span class="p">]</span>
-
-<span class="c1"># combine day of week and delays into one plot</span>
-<span class="c1"># Plot inbound flights arrival delays by hour of day and then break further by the day of the week</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
-<span class="n">sb</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dfw_inbound</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;hour&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;ArrDelay&#39;</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;day_name&#39;</span><span class="p">,</span> <span class="n">hue_order</span><span class="o">=</span><span class="n">day_order</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Inbound Flights&#39;</span><span class="p">)</span>
-
-<span class="c1"># Plot outbound flights arrival delays by hour of day and then break further by the day of the week</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
-<span class="n">sb</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dfw_outbound</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;hour&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;DepDelay&#39;</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;day_name&#39;</span><span class="p">,</span> <span class="n">hue_order</span><span class="o">=</span><span class="n">day_order</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Outbound Flights&#39;</span><span class="p">);</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput ">
 
 <div class="jp-Cell-outputWrapper">
-
 
 <div class="jp-OutputArea jp-Cell-outputArea">
 
 <div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
 
 
 
@@ -15251,10 +14804,6 @@ The most delays for flights coming into DFW happen around 5 Pm to 10 PM</p>
 </div>
 
 <div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
 
 
 
@@ -15270,37 +14819,18 @@ The most delays for flights coming into DFW happen around 5 Pm to 10 PM</p>
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>jupyter nbconvert explanatory.ipynb --to slides --post serve 
-<span class="o">!</span>--SlidesExporter.reveal_scroll<span class="o">=</span>True 
-<span class="o">!</span>--SlidesExporter.reveal_transition<span class="o">=</span>none
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput ">
 
 <div class="jp-Cell-outputWrapper">
-
 
 <div class="jp-OutputArea jp-Cell-outputArea">
 
 <div class="jp-OutputArea-child">
 
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
 <pre>[NbConvertApp] WARNING | Config option `kernel_spec_manager_class` not recognized by `NbConvertApp`.
 [NbConvertApp] Converting notebook explanatory.ipynb to slides
-[NbConvertApp] Writing 1049857 bytes to explanatory.slides.html
+[NbConvertApp] Writing 1053318 bytes to explanatory.slides.html
 [NbConvertApp] Redirecting reveal.js requests to https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0
 Traceback (most recent call last):
   File &#34;C:\Users\abdal\Anaconda3\Scripts\jupyter-nbconvert-script.py&#34;, line 10, in &lt;module&gt;
@@ -15326,10 +14856,6 @@ Traceback (most recent call last):
   File &#34;C:\Users\abdal\Anaconda3\lib\site-packages\tornado\netutil.py&#34;, line 174, in bind_sockets
     sock.bind(sockaddr)
 OSError: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted
-&#39;--SlidesExporter.reveal_scroll&#39; is not recognized as an internal or external command,
-operable program or batch file.
-&#39;--SlidesExporter.reveal_transition&#39; is not recognized as an internal or external command,
-operable program or batch file.
 </pre>
 </div>
 </div>
@@ -15338,19 +14864,58 @@ operable program or batch file.
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell  jp-mod-noInput ">
 
-     </div>
+<div class="jp-Cell-outputWrapper">
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>[NbConvertApp] WARNING | Config option `kernel_spec_manager_class` not recognized by `NbConvertApp`.
+[NbConvertApp] Converting notebook explanatory.ipynb to slides
+Traceback (most recent call last):
+  File &#34;C:\Users\abdal\Anaconda3\Scripts\jupyter-nbconvert-script.py&#34;, line 10, in &lt;module&gt;
+    sys.exit(main())
+  File &#34;C:\Users\abdal\Anaconda3\lib\site-packages\jupyter_core\application.py&#34;, line 270, in launch_instance
+    return super(JupyterApp, cls).launch_instance(argv=argv, **kwargs)
+  File &#34;C:\Users\abdal\Anaconda3\lib\site-packages\traitlets\config\application.py&#34;, line 845, in launch_instance
+    app.start()
+  File &#34;C:\Users\abdal\Anaconda3\lib\site-packages\nbconvert\nbconvertapp.py&#34;, line 350, in start
+    self.convert_notebooks()
+  File &#34;C:\Users\abdal\Anaconda3\lib\site-packages\nbconvert\nbconvertapp.py&#34;, line 524, in convert_notebooks
+    self.convert_single_notebook(notebook_filename)
+  File &#34;C:\Users\abdal\Anaconda3\lib\site-packages\nbconvert\nbconvertapp.py&#34;, line 489, in convert_single_notebook
+    output, resources = self.export_single_notebook(notebook_filename, resources, input_buffer=input_buffer)
+  File &#34;C:\Users\abdal\Anaconda3\lib\site-packages\nbconvert\nbconvertapp.py&#34;, line 418, in export_single_notebook
+    output, resources = self.exporter.from_filename(notebook_filename, resources=resources)
+  File &#34;C:\Users\abdal\Anaconda3\lib\site-packages\nbconvert\exporters\exporter.py&#34;, line 181, in from_filename
+    return self.from_file(f, resources=resources, **kw)
+  File &#34;C:\Users\abdal\Anaconda3\lib\site-packages\nbconvert\exporters\exporter.py&#34;, line 199, in from_file
+    return self.from_notebook_node(nbformat.read(file_stream, as_version=4), resources=resources, **kw)
+  File &#34;C:\Users\abdal\Anaconda3\lib\site-packages\nbconvert\exporters\html.py&#34;, line 119, in from_notebook_node
+    return super().from_notebook_node(nb, resources, **kw)
+  File &#34;C:\Users\abdal\Anaconda3\lib\site-packages\nbconvert\exporters\templateexporter.py&#34;, line 384, in from_notebook_node
+    output = self.template.render(nb=nb_copy, resources=resources)
+  File &#34;C:\Users\abdal\Anaconda3\lib\site-packages\jinja2\environment.py&#34;, line 1090, in render
+    self.environment.handle_exception()
+  File &#34;C:\Users\abdal\Anaconda3\lib\site-packages\jinja2\environment.py&#34;, line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File &#34;C:\Users\abdal\Anaconda3\lib\site-packages\jinja2\_compat.py&#34;, line 28, in reraise
+    raise value.with_traceback(tb)
+  File &#34;C:\Users\abdal\Documents\Udacity\Data Analyst Nanodegree\Data Visualization\Project\DataExpo2009\2005.csv\output_toggle.tpl&#34;, line 5, in top-level template code
+    {%- extends &#39;slides_reveal.tpl&#39; -%}
+jinja2.exceptions.TemplateNotFound: slides_reveal.tpl
+</pre>
 </div>
 </div>
+
 </div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs jp-mod-noInput ">
 
 </div></section></section>
 </div>
@@ -15375,7 +14940,7 @@ require(
             controls: true,
             progress: true,
             history: true,
-            transition: "none",
+            transition: "slide",
         });
 
         var update = function(event){
@@ -15387,7 +14952,7 @@ require(
         Reveal.addEventListener('slidechanged', update);
 
         function setScrollingSlide() {
-            var scroll = true
+            var scroll = false
             if (scroll === true) {
               var h = $('.reveal').height() * 0.95;
               $('section.present').find('section')
