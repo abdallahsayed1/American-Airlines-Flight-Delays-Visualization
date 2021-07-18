@@ -1,68 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<title>explanatory</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
-<title>explanatory slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
-<!-- General and theme style sheets -->
-<link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/reveal.css">
-<link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/theme/simple.css" id="theme">
-
-<!-- If the query includes 'print-pdf', include the PDF print sheet -->
-<script>
-if( window.location.search.match( /print-pdf/gi ) ) {
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
-}
-</script>
-
-<!-- Loading the mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML-full,Safe"> </script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    init_mathjax = function() {
-        if (window.MathJax) {
-        // MathJax loaded
-            MathJax.Hub.Config({
-                TeX: {
-                    equationNumbers: {
-                    autoNumber: "AMS",
-                    useLabelIds: true
-                    }
-                },
-                tex2jax: {
-                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-                    processEscapes: true,
-                    processEnvironments: true
-                },
-                displayAlign: 'center',
-                CommonHTML: {
-                    linebreaks: { 
-                    automatic: true 
-                    }
-                },
-                "HTML-CSS": {
-                    linebreaks: { 
-                    automatic: true 
-                    }
-                }
-            });
-        
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-        }
-    }
-    init_mathjax();
-    </script>
-    <!-- End of mathjax configuration -->
 
 <style type="text/css">
     pre { line-height: 125%; margin: 0; }
@@ -14266,15 +14210,16 @@ a.anchor-link {
 .highlight  {
     margin: 0.4em;
 }
-.jp-Notebook {
-    padding: 0;
+
+/* Input area styling */
+.jp-InputArea {
+    overflow: hidden;
 }
-:root {
-    --jp-ui-font-size1: 20px;       /* instead of 14px */
-    --jp-content-font-size1: 20px;  /* instead of 14px */
-    --jp-code-font-size: 19px;      /* instead of 13px */
-    --jp-cell-prompt-width: 110px;  /* instead of 64px */
+
+.jp-InputArea-editor {
+    overflow: hidden;
 }
+
 @media print {
   body {
     margin: 0;
@@ -14282,138 +14227,404 @@ a.anchor-link {
 }
 </style>
 
-<style type="text/css">
-/* Overrides of notebook CSS for static HTML export */
-.reveal {
-  font-size: 160%;
-}
-.reveal pre {
-  width: inherit;
-  padding: 0.4em;
-  margin: 0px;
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-}
-.reveal pre code {
-  padding: 0px;
-}
-.reveal section img {
-  border: 0px solid black;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
-}
-.reveal i {
-  font-style: normal;
-  font-family: FontAwesome;
-  font-size: 2em;
-}
-.reveal .slides {
-  text-align: left;
-}
-.reveal.fade {
-  opacity: 1;
-}
-.reveal .progress {
-  position: static;
-}
 
-div.jp-InputArea-editor {
-  padding: 0.06em;
-}
 
-div.code_cell {
-  background-color: transparent;
-}
-
-div.output_area pre {
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-}
-
-div.jp-OutputPrompt {
-  /* 5px right shift to account for margin in parent container */
-  margin: 5px 5px 0 0;
-}
-
-/* Reveal navigation controls */
-
-.reveal .controls .navigate-left,
-.reveal .controls .navigate-left.enabled {
-  border-right-color: #727272;
-}
-.reveal .controls .navigate-left.enabled:hover,
-.reveal .controls .navigate-left.enabled.enabled:hover {
-  border-right-color: #dfdfdf;
-}
-.reveal .controls .navigate-right,
-.reveal .controls .navigate-right.enabled {
-  border-left-color: #727272;
-}
-.reveal .controls .navigate-right.enabled:hover,
-.reveal .controls .navigate-right.enabled.enabled:hover {
-  border-left-color: #dfdfdf;
-}
-.reveal .controls .navigate-up,
-.reveal .controls .navigate-up.enabled {
-  border-bottom-color: #727272;
-}
-.reveal .controls .navigate-up.enabled:hover,
-.reveal .controls .navigate-up.enabled.enabled:hover {
-  border-bottom-color: #dfdfdf;
-}
-.reveal .controls .navigate-down,
-.reveal .controls .navigate-down.enabled {
-  border-top-color: #727272;
-}
-.reveal .controls .navigate-down.enabled:hover,
-.reveal .controls .navigate-down.enabled.enabled:hover {
-  border-top-color: #dfdfdf;
-}
-.reveal .progress span {
-  background: #727272;
-}
-
-/* Scrollbars */
-
-::-webkit-scrollbar
-{
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar *
-{
-  background:transparent;
-}
-::-webkit-scrollbar-thumb
-{
-  background: #727272 !important;
-}
-</style>
-
-</head>
-
+<!-- Load mathjax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML-full,Safe"> </script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    init_mathjax = function() {
+        if (window.MathJax) {
+        // MathJax loaded
+            MathJax.Hub.Config({
+                TeX: {
+                    equationNumbers: {
+                    autoNumber: "AMS",
+                    useLabelIds: true
+                    }
+                },
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                displayAlign: 'center',
+                CommonHTML: {
+                    linebreaks: { 
+                    automatic: true 
+                    }
+                },
+                "HTML-CSS": {
+                    linebreaks: { 
+                    automatic: true 
+                    }
+                }
+            });
+        
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
+    }
+    init_mathjax();
+    </script>
+    <!-- End of mathjax configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 
-<div class="reveal">
-<div class="slides"><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Data-Expo-2009---Airline-on-time-performance">Data Expo 2009 - Airline on-time performance<a class="anchor-link" href="#Data-Expo-2009---Airline-on-time-performance">&#182;</a></h1><h2 id="by-Abdalla-Mohamed">by Abdalla Mohamed<a class="anchor-link" href="#by-Abdalla-Mohamed">&#182;</a></h2>
 </div>
-</div></section></section><section><section>
+</div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Investigation-Overview">Investigation Overview<a class="anchor-link" href="#Investigation-Overview">&#182;</a></h2><p>In this investigation, I wanted to look at how American Airlines flights on time perfromance for Dallas Fort Worth (DFW) Airport measures. The main focus was on Hour of day flight is schedules, day of the week, and month of the year.</p>
 <h2 id="Dataset-Overview">Dataset Overview<a class="anchor-link" href="#Dataset-Overview">&#182;</a></h2><p>The data analyzed is from 2005. It is a list of 7,140,596 flights of which 328,972 are for American Airlines (AA) flights into and out of DFW airport. The attributes included date, departure time, arrivale time, scheduled arrival, scheudled departure, flight number, origin and destination information. 11,469 rows were dropped due to missing arrival and departure delay time.</p>
 
 </div>
-</div></section></section><section><section>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import all packages and set plots to be embedded inline</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sb</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="c1"># suppress warnings from final output</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># load dataset</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;2005.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>Month</th>
+      <th>DayofMonth</th>
+      <th>DayOfWeek</th>
+      <th>DepTime</th>
+      <th>CRSDepTime</th>
+      <th>ArrTime</th>
+      <th>CRSArrTime</th>
+      <th>UniqueCarrier</th>
+      <th>FlightNum</th>
+      <th>...</th>
+      <th>TaxiIn</th>
+      <th>TaxiOut</th>
+      <th>Cancelled</th>
+      <th>CancellationCode</th>
+      <th>Diverted</th>
+      <th>CarrierDelay</th>
+      <th>WeatherDelay</th>
+      <th>NASDelay</th>
+      <th>SecurityDelay</th>
+      <th>LateAircraftDelay</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2005</td>
+      <td>1</td>
+      <td>28</td>
+      <td>5</td>
+      <td>1603.0</td>
+      <td>1605</td>
+      <td>1741.0</td>
+      <td>1759</td>
+      <td>UA</td>
+      <td>541</td>
+      <td>...</td>
+      <td>4</td>
+      <td>23</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2005</td>
+      <td>1</td>
+      <td>29</td>
+      <td>6</td>
+      <td>1559.0</td>
+      <td>1605</td>
+      <td>1736.0</td>
+      <td>1759</td>
+      <td>UA</td>
+      <td>541</td>
+      <td>...</td>
+      <td>6</td>
+      <td>15</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2005</td>
+      <td>1</td>
+      <td>30</td>
+      <td>7</td>
+      <td>1603.0</td>
+      <td>1610</td>
+      <td>1741.0</td>
+      <td>1805</td>
+      <td>UA</td>
+      <td>541</td>
+      <td>...</td>
+      <td>9</td>
+      <td>18</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2005</td>
+      <td>1</td>
+      <td>31</td>
+      <td>1</td>
+      <td>1556.0</td>
+      <td>1605</td>
+      <td>1726.0</td>
+      <td>1759</td>
+      <td>UA</td>
+      <td>541</td>
+      <td>...</td>
+      <td>11</td>
+      <td>10</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2005</td>
+      <td>1</td>
+      <td>2</td>
+      <td>7</td>
+      <td>1934.0</td>
+      <td>1900</td>
+      <td>2235.0</td>
+      <td>2232</td>
+      <td>UA</td>
+      <td>542</td>
+      <td>...</td>
+      <td>5</td>
+      <td>10</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 29 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create a dataframe for American Airlines flights only</span>
+<span class="n">df_aa</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;UniqueCarrier&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;AA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># drop the rows that dont have data for Departure time</span>
+<span class="c1"># drop rows that dont have data for Arrival time</span>
+<span class="n">df_aa</span> <span class="o">=</span> <span class="n">df_aa</span><span class="p">[</span><span class="n">df_aa</span><span class="o">.</span><span class="n">DepTime</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
+<span class="n">df_aa</span> <span class="o">=</span> <span class="n">df_aa</span><span class="p">[</span><span class="n">df_aa</span><span class="o">.</span><span class="n">ArrTime</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">cleanDates</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">yVar</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    this function is used to convert the float format given for some date variables and converts it into</span>
+<span class="sd">    a datetime format</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># change the data type to datetime</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">yVar</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">yVar</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.0&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>    <span class="c1"># remove the &#39;.0&#39;</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">yVar</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">yVar</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>    <span class="c1"># add leading zero if less than 4  digit</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">yVar</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">yVar</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="n">yVar</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>    <span class="c1"># add &quot;:&quot; time seperator between hour and minute</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">yVar</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">yVar</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;24&#39;</span><span class="p">,</span> <span class="s1">&#39;00&#39;</span><span class="p">)</span>    <span class="c1"># replace all hours that read 24 into 00</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">yVar</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">yVar</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%H:%M&#39;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">df</span><span class="p">[</span><span class="n">yVar</span><span class="p">]</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># change to appropriate datatypes</span>
+
+<span class="c1"># change the data type for flight number to string</span>
+<span class="n">df_aa</span><span class="p">[</span><span class="s1">&#39;FlightNum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_aa</span><span class="p">[</span><span class="s1">&#39;FlightNum&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+
+<span class="n">df_aa</span><span class="p">[</span><span class="s1">&#39;DepTime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cleanDates</span><span class="p">(</span><span class="n">df_aa</span><span class="p">,</span> <span class="s1">&#39;DepTime&#39;</span><span class="p">)</span>
+<span class="n">df_aa</span><span class="p">[</span><span class="s1">&#39;CRSDepTime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cleanDates</span><span class="p">(</span><span class="n">df_aa</span><span class="p">,</span> <span class="s1">&#39;CRSDepTime&#39;</span><span class="p">)</span>
+<span class="n">df_aa</span><span class="p">[</span><span class="s1">&#39;ArrTime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cleanDates</span><span class="p">(</span><span class="n">df_aa</span><span class="p">,</span> <span class="s1">&#39;ArrTime&#39;</span><span class="p">)</span>
+<span class="n">df_aa</span><span class="p">[</span><span class="s1">&#39;CRSArrTime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cleanDates</span><span class="p">(</span><span class="n">df_aa</span><span class="p">,</span> <span class="s1">&#39;CRSArrTime&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create 2 dataframes. one for outbound flights from DFW airport and one for inbound flights to DFW airport</span>
+<span class="n">dfw_outbound</span> <span class="o">=</span> <span class="n">df_aa</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Origin == &quot;DFW&quot; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">dfw_inbound</span> <span class="o">=</span> <span class="n">df_aa</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Dest == &quot;DFW&quot; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># convert the intergers given into the full name for day of week</span>
+<span class="n">DayOfWeek</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;Monday&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="s1">&#39;Wednesday&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="s1">&#39;Thursday&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span><span class="s1">&#39;Friday&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span><span class="s1">&#39;Saturday&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">:</span><span class="s1">&#39;Sunday&#39;</span><span class="p">}</span>
+<span class="n">dfw_inbound</span><span class="p">[</span><span class="s1">&#39;day_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfw_inbound</span><span class="p">[</span><span class="s1">&#39;DayOfWeek&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">DayOfWeek</span><span class="p">)</span>   <span class="c1"># map the DayOfWeek dictionary to convert into name</span>
+<span class="n">dfw_inbound</span><span class="p">[</span><span class="s1">&#39;hour&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfw_inbound</span><span class="o">.</span><span class="n">CRSArrTime</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">hour</span>                <span class="c1"># create new hour column</span>
+
+<span class="c1"># convert the intergers given into the full name for day of week</span>
+<span class="n">DayOfWeek</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;Monday&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="s1">&#39;Wednesday&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="s1">&#39;Thursday&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span><span class="s1">&#39;Friday&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span><span class="s1">&#39;Saturday&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">:</span><span class="s1">&#39;Sunday&#39;</span><span class="p">}</span>
+<span class="n">dfw_outbound</span><span class="p">[</span><span class="s1">&#39;day_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfw_outbound</span><span class="p">[</span><span class="s1">&#39;DayOfWeek&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">DayOfWeek</span><span class="p">)</span>  <span class="c1"># map the DayOfWeek dictionary to convert into name</span>
+<span class="n">dfw_outbound</span><span class="p">[</span><span class="s1">&#39;hour&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfw_outbound</span><span class="o">.</span><span class="n">CRSDepTime</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">hour</span>               <span class="c1"># create new hour column</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create a datafram that combines all DFW flights, both outbound and inbound</span>
+<span class="n">dfw</span> <span class="o">=</span> <span class="p">[</span><span class="n">dfw_inbound</span><span class="p">,</span> <span class="n">dfw_outbound</span><span class="p">]</span>
+<span class="n">dfw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">dfw</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Distribution-of-Outbound-flights">Distribution of Outbound flights<a class="anchor-link" href="#Distribution-of-Outbound-flights">&#182;</a></h2><p>We can see that there is a wide range of flight frequncies, some fly out of DFW airport daily and some only once a year. A good proportion fly almost daily. There are 6 daily outbound flights</p>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
@@ -14466,13 +14677,13 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></section></section><section><section>
+</div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Distribution-of-Inbound-flights">Distribution of Inbound flights<a class="anchor-link" href="#Distribution-of-Inbound-flights">&#182;</a></h2><p>We see the flights frequency also has a wide range with some flights flying into DFW daily and and others just once a year. There is a smaller portion which fly almost daily compared to the outbound flights. There is only 1 daily inbound flight, which is flight number 8</p>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
@@ -14526,13 +14737,13 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></section></section><section><section>
+</div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Distribution-of-Flights-by-Day-of-Month">Distribution of Flights by Day of Month<a class="anchor-link" href="#Distribution-of-Flights-by-Day-of-Month">&#182;</a></h2><p>The order of the days of the months were kept as they are since they have an inherent order. It is expected for the 31st day to have the leaste amount of flights since not all months have 31 days. The maximum flights occur on the 11th day of the month</p>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
@@ -14578,13 +14789,13 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></section></section><section><section>
+</div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Distribution-of-Flights-by-Month">Distribution of Flights by Month<a class="anchor-link" href="#Distribution-of-Flights-by-Month">&#182;</a></h2><p>The order of the months are kept as is since there is an inherent order in months. July and August are the months with the most frequent flights</p>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
@@ -14631,7 +14842,7 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></section></section><section><section>
+</div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Distribution-of-Flights-by-Day-of-Week">Distribution of Flights by Day of Week<a class="anchor-link" href="#Distribution-of-Flights-by-Day-of-Week">&#182;</a></h2><p>We see that week days 2,3,5,1, and 4 have roughly the same number of flights where days 7 and 6 have less flights throughout the year</p>
@@ -14645,7 +14856,7 @@ div.jp-OutputPrompt {
 </blockquote>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
@@ -14690,7 +14901,7 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></section></section><section><section>
+</div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Distribution-of-Inbound-Arrival-Delay-and-Outbound-Departure-Delay">Distribution of Inbound Arrival Delay and Outbound Departure Delay<a class="anchor-link" href="#Distribution-of-Inbound-Arrival-Delay-and-Outbound-Departure-Delay">&#182;</a></h2><p>For inbound flights, we observe that the majority of flights arrived earlier than scheduduled by around 30 minutes, or on time. The majority of delayed flights are within 60 mins of delays</p>
@@ -14699,7 +14910,7 @@ div.jp-OutputPrompt {
 <p>We observe that for outbound flights, the frequency is a lot more precise than spreadout compared to inbound flights. The mode frequency for outbound flights is around 17,000 where inbound mode frequcncy is around 6,000</p>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
@@ -14759,7 +14970,7 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></section></section><section><section>
+</div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Inbound-Delay-VS-Scheduled-Arrival-Time-&amp;">Inbound Delay VS Scheduled Arrival Time &amp;<a class="anchor-link" href="#Inbound-Delay-VS-Scheduled-Arrival-Time-&amp;">&#182;</a></h2><h2 id="Outbound-Delay-VS-Scheduled-Departure-Time">Outbound Delay VS Scheduled Departure Time<a class="anchor-link" href="#Outbound-Delay-VS-Scheduled-Departure-Time">&#182;</a></h2><p>From this visualization we see that starting around 11 AM, Dallas Local Time, as the day goes on, we can expect more delays up until 7 PM, with a break at 8 PM, and then steady delays until midnight.
@@ -14778,7 +14989,7 @@ Furthermore, the best time to catch a flight coming into DFW airport is also at 
 The most delays for flights coming into DFW happen around 5 Pm to 10 PM</p>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
@@ -14855,14 +15066,14 @@ The most delays for flights coming into DFW happen around 5 Pm to 10 PM</p>
 
 </div>
 
-</div></section></section><section><section>
+</div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Arrival-Delays-VS-Departure-Delays-by-Schedued-Hour-of-the-Day">Arrival Delays VS Departure Delays by Schedued Hour of the Day<a class="anchor-link" href="#Arrival-Delays-VS-Departure-Delays-by-Schedued-Hour-of-the-Day">&#182;</a></h2><p>Inbound flights generally experience more depaerture delays than arrival delays, especially when their scheduled departure time is late night.</p>
 <p>Outbound flights generally tie between departure and arrival delays, however late hours of the night departure delays are slightly longer.</p>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
@@ -14942,13 +15153,13 @@ The most delays for flights coming into DFW happen around 5 Pm to 10 PM</p>
 
 </div>
 
-</div></section></section><section><section>
+</div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Inbound-Delays-VS-Scheduled-Arrival-time-broken-down-by-day-of-week">Inbound Delays VS Scheduled Arrival time broken down by day of week<a class="anchor-link" href="#Inbound-Delays-VS-Scheduled-Arrival-time-broken-down-by-day-of-week">&#182;</a></h2><p>The best day of the week to catch an inbound flight is Tuesday morning. you can expect to arrive on average 15 minutes early; whereas Sunday and Thursday mornings you can exoect to arrive on average 15 minutes late</p>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
@@ -15007,13 +15218,13 @@ The most delays for flights coming into DFW happen around 5 Pm to 10 PM</p>
 
 </div>
 
-</div></section></section><section><section>
+</div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Outbound-Delays-VS-Scheduled-Departure-time-broken-down-by-day-of-week">Outbound Delays VS Scheduled Departure time broken down by day of week<a class="anchor-link" href="#Outbound-Delays-VS-Scheduled-Departure-time-broken-down-by-day-of-week">&#182;</a></h2><p>The worst day to catch an outbound flight from DFW airport is on Saturday night, where you can expect a delay of 40 minutes on average</p>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
@@ -15072,13 +15283,13 @@ The most delays for flights coming into DFW happen around 5 Pm to 10 PM</p>
 
 </div>
 
-</div></section></section><section><section>
+</div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Inbound-Arrival-Delays-by-Month">Inbound Arrival Delays by Month<a class="anchor-link" href="#Inbound-Arrival-Delays-by-Month">&#182;</a></h2><p>We can see delays get longer during January, then taper off, and delays start getting longer again starting June through August, with the longest delays of the year occur in July. Delays taper off again and pick up for december into January</p>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
@@ -15133,13 +15344,13 @@ The most delays for flights coming into DFW happen around 5 Pm to 10 PM</p>
 
 </div>
 
-</div></section></section><section><section>
+</div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Outbound-Departure-Delays-by-Month">Outbound Departure Delays by Month<a class="anchor-link" href="#Outbound-Departure-Delays-by-Month">&#182;</a></h2><p>A similar trend is seen to inbound flights where delays during January, June, July, August and December are the longest</p>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
@@ -15194,7 +15405,7 @@ The most delays for flights coming into DFW happen around 5 Pm to 10 PM</p>
 
 </div>
 
-</div></section></section><section><section>
+</div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Inbound/Outbound-VS-Scheduled-time-broken-down-by-day-of-week">Inbound/Outbound VS Scheduled time broken down by day of week<a class="anchor-link" href="#Inbound/Outbound-VS-Scheduled-time-broken-down-by-day-of-week">&#182;</a></h2><p>Inbound flights have an interesting delay time at 6 AM. On Sundays and Thursday there are heavy delays; Whereas Tuesdays at 6 AM flights arrive around 15 minutes early.</p>
@@ -15202,7 +15413,7 @@ The most delays for flights coming into DFW happen around 5 Pm to 10 PM</p>
 <p>Outbound flights on late Saturday nights expericence around 40 minutes of departure delays. This would be an interesting pattern to further study.</p>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
@@ -15270,6 +15481,68 @@ The most delays for flights coming into DFW happen around 5 Pm to 10 PM</p>
 
 </div>
 
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>jupyter nbconvert explanatory.ipynb --to slides --post serve  --no-input --no-prompt
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>[NbConvertApp] WARNING | Config option `kernel_spec_manager_class` not recognized by `NbConvertApp`.
+[NbConvertApp] Converting notebook explanatory.ipynb to slides
+[NbConvertApp] Writing 1007755 bytes to explanatory.slides.html
+[NbConvertApp] Redirecting reveal.js requests to https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0
+Traceback (most recent call last):
+  File &#34;C:\Users\abdal\Anaconda3\Scripts\jupyter-nbconvert-script.py&#34;, line 10, in &lt;module&gt;
+    sys.exit(main())
+  File &#34;C:\Users\abdal\Anaconda3\lib\site-packages\jupyter_core\application.py&#34;, line 270, in launch_instance
+    return super(JupyterApp, cls).launch_instance(argv=argv, **kwargs)
+  File &#34;C:\Users\abdal\Anaconda3\lib\site-packages\traitlets\config\application.py&#34;, line 845, in launch_instance
+    app.start()
+  File &#34;C:\Users\abdal\Anaconda3\lib\site-packages\nbconvert\nbconvertapp.py&#34;, line 350, in start
+    self.convert_notebooks()
+  File &#34;C:\Users\abdal\Anaconda3\lib\site-packages\nbconvert\nbconvertapp.py&#34;, line 524, in convert_notebooks
+    self.convert_single_notebook(notebook_filename)
+  File &#34;C:\Users\abdal\Anaconda3\lib\site-packages\nbconvert\nbconvertapp.py&#34;, line 491, in convert_single_notebook
+    self.postprocess_single_notebook(write_results)
+  File &#34;C:\Users\abdal\Anaconda3\lib\site-packages\nbconvert\nbconvertapp.py&#34;, line 463, in postprocess_single_notebook
+    self.postprocessor(write_results)
+  File &#34;C:\Users\abdal\Anaconda3\lib\site-packages\nbconvert\postprocessors\base.py&#34;, line 28, in __call__
+    self.postprocess(input)
+  File &#34;C:\Users\abdal\Anaconda3\lib\site-packages\nbconvert\postprocessors\serve.py&#34;, line 90, in postprocess
+    http_server.listen(self.port, address=self.ip)
+  File &#34;C:\Users\abdal\Anaconda3\lib\site-packages\tornado\tcpserver.py&#34;, line 151, in listen
+    sockets = bind_sockets(port, address=address)
+  File &#34;C:\Users\abdal\Anaconda3\lib\site-packages\tornado\netutil.py&#34;, line 174, in bind_sockets
+    sock.bind(sockaddr)
+OSError: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
@@ -15284,58 +15557,13 @@ The most delays for flights coming into DFW happen around 5 Pm to 10 PM</p>
 </div>
 </div>
 
-</div></section></section>
-</div>
 </div>
 </body>
 
 
-<script>
-require(
-    {
-      // it makes sense to wait a little bit when you are loading
-      // reveal from a cdn in a slow connection environment
-      waitSeconds: 15
-    },
-    [
-      "https://unpkg.com/reveal.js@4.0.2/dist/reveal.js"
-    ],
 
-    function(Reveal){
-        // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
-        Reveal.initialize({
-            controls: true,
-            progress: true,
-            history: true,
-            transition: "slide",
-        });
 
-        var update = function(event){
-          if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
-            MathJax.Hub.Rerender(Reveal.getCurrentSlide());
-          }
-        };
 
-        Reveal.addEventListener('slidechanged', update);
 
-        function setScrollingSlide() {
-            var scroll = false
-            if (scroll === true) {
-              var h = $('.reveal').height() * 0.95;
-              $('section.present').find('section')
-                .filter(function() {
-                  return $(this).height() > h;
-                })
-                .css('height', 'calc(95vh)')
-                .css('overflow-y', 'scroll')
-                .css('margin-top', '20px');
-            }
-        }
-
-        // check and set the scrolling slide every time the slide change
-        Reveal.addEventListener('slidechanged', setScrollingSlide);
-    }
-);
-</script>
 
 </html>
